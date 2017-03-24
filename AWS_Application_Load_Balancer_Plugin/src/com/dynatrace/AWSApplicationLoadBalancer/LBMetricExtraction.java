@@ -30,6 +30,7 @@ public class LBMetricExtraction {
 
 	}
 
+
 	public AmazonCloudWatch Login(String accessKey, String secretAccessKey,String region){
 
 	        BasicAWSCredentials credentials = new BasicAWSCredentials(accessKey, secretAccessKey);
@@ -41,6 +42,7 @@ public class LBMetricExtraction {
 	        return client;
 	 
 	}
+	
 	
 	private int calculateDataGranularity(String strDataGranularity) throws ApplicationLoadBalancerException{
 		
@@ -73,8 +75,6 @@ public class LBMetricExtraction {
 		default: 
 			
 			throw new ApplicationLoadBalancerException("Strange data granularity selected");
-			//log.info("Got a strange data granularity. This should never happen. Return 60.");
-			//return 60;
 		}
 	}
 	

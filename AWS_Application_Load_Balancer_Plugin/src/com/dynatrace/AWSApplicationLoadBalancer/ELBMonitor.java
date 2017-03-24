@@ -16,15 +16,20 @@ import java.util.logging.Logger;
 public class ELBMonitor implements Monitor {
 	
 	private static final Logger log = Logger.getLogger(ELBMonitor.class.getName());	
+	
+	//List of Available Application loadbalancer metrics 
 	private List<String> appLbMetrics = new ArrayList<String>();
+	
 	private  LBMetricExtraction metricExtractor;
 	
+	//Input variables
 	protected static final String CONFIG_ACCCESS_KEY = "accessKey";
 	protected static final String CONFIG_SECRET_ACCESS_KEY = "secretAccessKey";
 	protected static final String CONFIG_LOADBALANCER_NAME = "loadBalancerName";
 	protected static final String CONFIG_REGIGON = "region";
 	protected static final String CONFIG_GRANULARITY = "granularity";
 
+	//setting up when creating the monitor
 	@Override
 	public Status setup(MonitorEnvironment env) throws Exception {
 
@@ -54,16 +59,18 @@ public class ELBMonitor implements Monitor {
 		return new Status(Status.StatusCode.Success);
 	}
 
+	
 	@Override
 	public Status execute(MonitorEnvironment env) throws Exception {
 		
-		
+		// grab the input parameters 
 		String accessKey = env.getConfigString(CONFIG_ACCCESS_KEY);
 		String secretAccessKey = env.getConfigPassword(CONFIG_SECRET_ACCESS_KEY);
 		String lbName = env.getConfigString(CONFIG_LOADBALANCER_NAME);
 		String region = env.getConfigString(CONFIG_REGIGON);
 		String granularity = env.getConfigString(CONFIG_GRANULARITY);
 		
+		//check if there is a value 
 		if(accessKey == null | accessKey.isEmpty()){
 			throw new ApplicationLoadBalancerException("No Access Key provided");
 		}
@@ -77,10 +84,12 @@ public class ELBMonitor implements Monitor {
 			throw new ApplicationLoadBalancerException("No Region provided");
 		}
 		
+		//Login to access the cloudwatch metrics
 		AmazonCloudWatch watcher = metricExtractor.Login(accessKey, secretAccessKey, region);
 		
 		Collection<MonitorMeasure> monitorMeasures;
-
+		
+		// start extracting values for metrics which are subscribed to
 		for(String metricName: appLbMetrics){
 		monitorMeasures = env.getMonitorMeasures("AWS Application Load Balancer Metrics",metricName);
 		
@@ -120,6 +129,7 @@ public class ELBMonitor implements Monitor {
 	        			dynamicMeasure.setValue(sum);
 	        		}
 	        		break;
+	        		
 	        	default:
 	        	if(sCount!=-1){
 	        		dynamicMeasure = env.createDynamicMeasure(subscribedMonitorMeasure, "Aggregation", "Sample Count");

@@ -6,25 +6,25 @@ Available Metrics
 
 Amazon provide guidance on which metrics and aggregation combinations are most useful (see here) and these are listed in bold below. These are the only metrics that have been tested during development of this plugin. However, others should work.
 
-ActiveConnectionCount - Sum (Average, Min, Max "not typically useful")
-ClientTLSNegotiationErrorCount - Sum (Average, Min, Max "not typically useful")
-HealthyHostCount - Average, Min, Max (Sum "not typically useful")
-HTTPCode_ELB_4XX_Count - Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
-HTTPCode_ELB_5XX_Count -  Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
-HTTPCode_Target_2XX_Count - Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
-HTTPCode_Target_3XX_Count - Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
-HTTPCode_Target_4XX_Count - Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
-HTTPCode_Target_5XX_Count - Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
-IPv6ProcessedBytes - Sum, Average, Min, Max
-IPv6RequestCount - Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
-NewConnectionCount - Sum (Average, Min, Max "not typically useful")
-ProcessedBytes - Sum, Average, Min, Max
-RejectedConnectionCount - Sum (Average, Min, Max "not typically useful")
-RequestCount - Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
-TargetConnectionErrorCount - Sum (Average, Min, Max "not typically useful")
-TargetResponseTime - Average (Sum, Min, Max "not typically useful")
-TargetTLSNegotiationErrorCount - Sum (Average, Min, Max "not typically useful")
-UnHealthyHostCount - Average, Min, Max (Sum "not typically useful")
+- _ActiveConnectionCount - Sum (Average, Min, Max "not typically useful")
+- _ClientTLSNegotiationErrorCount - Sum (Average, Min, Max "not typically useful")
+- _HealthyHostCount - Average, Min, Max (Sum "not typically useful")
+- _HTTPCode_ELB_4XX_Count - Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
+- _HTTPCode_ELB_5XX_Count -  Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
+- _HTTPCode_Target_2XX_Count - Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
+- _HTTPCode_Target_3XX_Count - Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
+- _HTTPCode_Target_4XX_Count - Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
+- _HTTPCode_Target_5XX_Count - Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
+- _IPv6ProcessedBytes - Sum, Average, Min, Max
+- _IPv6RequestCount - Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
+- _NewConnectionCount - Sum (Average, Min, Max "not typically useful")
+- _ProcessedBytes - Sum, Average, Min, Max
+- _RejectedConnectionCount - Sum (Average, Min, Max "not typically useful")
+- _RequestCount - Sum (Average, Min, Max will return 1, therefore these metrics are filtered out)
+- _TargetConnectionErrorCount - Sum (Average, Min, Max "not typically useful")
+- _TargetResponseTime - Average (Sum, Min, Max "not typically useful")
+- _TargetTLSNegotiationErrorCount - Sum (Average, Min, Max "not typically useful")
+- _UnHealthyHostCount - Average, Min, Max (Sum "not typically useful")
 
 
 ## Prerequisites

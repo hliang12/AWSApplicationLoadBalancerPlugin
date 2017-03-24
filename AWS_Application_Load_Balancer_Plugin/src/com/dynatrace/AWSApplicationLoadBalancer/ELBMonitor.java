@@ -44,17 +44,18 @@ public class ELBMonitor implements Monitor {
 		    appLbMetrics.add("HTTPCode_Target_3XX_Count");
 		    appLbMetrics.add("HTTPCode_Target_4XX_Count");
 		    appLbMetrics.add("HTTPCode_Target_5XX_Count");
-		    appLbMetrics.add("HTTPCode_Target_5XX_Count");
+		    appLbMetrics.add("IPv6ProcessedBytes");
+		    appLbMetrics.add("IPv6RequestCount");
 		    appLbMetrics.add("NewConnectionCount");
 		    appLbMetrics.add("ProcessedBytes");
 		    appLbMetrics.add("RejectedConnectionCount");
+		    appLbMetrics.add("RequestCount");
 		    appLbMetrics.add("TargetConnectionErrorCount");
 		    appLbMetrics.add("TargetResponseTime");
 		    appLbMetrics.add("TargetTLSNegotiationErrorCount");
 		    appLbMetrics.add("UnHealthyHostCount");
-		    appLbMetrics.add("IPv6ProcessedBytes");
-		    appLbMetrics.add("IPv6RequestCount");
-		    appLbMetrics.add("RequestCount");
+		   
+		    
 	
 		return new Status(Status.StatusCode.Success);
 	}

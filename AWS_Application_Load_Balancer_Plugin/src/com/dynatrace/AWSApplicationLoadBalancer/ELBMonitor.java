@@ -103,6 +103,8 @@ public class ELBMonitor implements Monitor {
 		 			max = p.getMaximum();
 		 		}
 		 		
+		 		MonitorMeasure dynamicMeasure; 
+		 		
 		 		switch (metricName){
 	        	case "HTTPCode_ELB_4XX_Count":
 	        	case "HTTPCode_ELB_5XX_Count":
@@ -113,25 +115,32 @@ public class ELBMonitor implements Monitor {
 	        	case "IPv6RequestCount":
 	        	case "RequestCount": 
 	        	case "IPv6ProcessedBytes":
-	        		MonitorMeasure dynamicMeasure = env.createDynamicMeasure(subscribedMonitorMeasure, "Aggregation", "Sum");
-	        		dynamicMeasure.setValue(sum);
+	        		if(sum!=-1){
+	        			dynamicMeasure = env.createDynamicMeasure(subscribedMonitorMeasure, "Aggregation", "Sum");
+	        			dynamicMeasure.setValue(sum);
+	        		}
 	        		break;
-	        		
 	        	default:
-				MonitorMeasure dynamicMeasure1 = env.createDynamicMeasure(subscribedMonitorMeasure, "Aggregation", "Sample Count");
-				dynamicMeasure1.setValue(sCount);
-
-				dynamicMeasure1 = env.createDynamicMeasure(subscribedMonitorMeasure, "Aggregation", "Average");
-				dynamicMeasure1.setValue(average);
-				
-				dynamicMeasure1 = env.createDynamicMeasure(subscribedMonitorMeasure, "Aggregation", "Sum");
-				dynamicMeasure1.setValue(sum);
-				
-				dynamicMeasure1 = env.createDynamicMeasure(subscribedMonitorMeasure, "Aggregation", "Minimum");
-				dynamicMeasure1.setValue(min);
-				
-				dynamicMeasure1 = env.createDynamicMeasure(subscribedMonitorMeasure, "Aggregation", "Maximum");
-				dynamicMeasure1.setValue(max);
+	        	if(sCount!=-1){
+	        		dynamicMeasure = env.createDynamicMeasure(subscribedMonitorMeasure, "Aggregation", "Sample Count");
+	        		dynamicMeasure.setValue(sCount);
+	        	}
+	        	if(average!=-1){
+	        		dynamicMeasure = env.createDynamicMeasure(subscribedMonitorMeasure, "Aggregation", "Average");
+	        		dynamicMeasure.setValue(average);
+	        	}
+				if(sum!=-1){
+					dynamicMeasure = env.createDynamicMeasure(subscribedMonitorMeasure, "Aggregation", "Sum");
+					dynamicMeasure.setValue(sum);
+				}
+				if(min!=-1){
+					dynamicMeasure = env.createDynamicMeasure(subscribedMonitorMeasure, "Aggregation", "Minimum");
+					dynamicMeasure.setValue(min);
+				}
+				if(max!=-1){
+					dynamicMeasure = env.createDynamicMeasure(subscribedMonitorMeasure, "Aggregation", "Maximum");
+					dynamicMeasure.setValue(max);
+				}
 				break;
 		 		}
 		}

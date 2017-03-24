@@ -37,6 +37,12 @@ To use this plugin, you'll need the following details:
 
 ![](http://i65.tinypic.com/a455pi.png)
 
+## Usage
+
+1. Download the latest release from the Dynatrace Community.
+2. Install the plugin via the client (or use the [REST interface](https://community.dynatrace.com/community/pages/viewpage.action?pageId=221381697) to automate).
+3. Create a monitor and configure the monitor (the *host* setting is not used so setting this to localhost is acceptable).
+
 ### IMPORTANT: Supported Data Granularities
 
 The **data granularity** and the plugin schedule time **MUST** match. In the following screenshots, both are set to 5 minutes.

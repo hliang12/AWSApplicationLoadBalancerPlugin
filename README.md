@@ -59,4 +59,4 @@ The **data granularity** and the plugin schedule time **MUST** match. In the fol
     
 ![](http://i64.tinypic.com/2gvrpj7.png)
 
-![](http://i68.tinypic.com/243ex4k.png)
+![](http://i68.tinypic.com/2yl93kj.png)
